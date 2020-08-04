@@ -5,3 +5,20 @@
 #page-landing {
   background-color: var(--color-primary);
 }
+
+#page-landing #container {
+  color: var(--color-text-in-primary);
+}
+
+.logo-container img {
+  height: 10rem;
+}
+
+.logo-container {
+  text-align: center;
+}
+
+.hero-image {
+  width: 100%;
+
+}
