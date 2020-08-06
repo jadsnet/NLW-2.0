@@ -34,6 +34,7 @@
 .page-header .header-content {
   width: 90%;
   margin: 3.2rem auto;
+  position: relative;
 }
 
 .page-header .header-content strong {
@@ -206,6 +207,7 @@
   #page-study #container {
       max-width: 100vw;
   }
+
 
   .page-header {
       height: 340px;
