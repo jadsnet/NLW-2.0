@@ -1,6 +1,6 @@
 const Database = require('./database/db')
 
-const { subjects,  weekdays, getSubject, convertHoursToMinutes } = require('./utils/format')
+const { subjects, weekdays, getSubject, convertHoursToMinutes } = require('./utils/format')
 
 function pageLanding(req, res) {
   return res.render("index.html")
@@ -13,9 +13,7 @@ async function pageStudy(req, res) {
     return res.render("study.html", { filters, subjects, weekdays })
   }
 
-  const timeToMinutes = convertHoursToMinutes(filters.time)
-
-  
+  const timeToMinutes = convertHoursToMinutes(filters.time)  
 
   const query = `
     SELECT classes.*, proffys.*
@@ -29,7 +27,7 @@ async function pageStudy(req, res) {
       AND class_schedule.time_from <= ${timeToMinutes}
       AND class_schedule.time_to > ${timeToMinutes}
     )
-    AND classes.subject = '${timeToMinutes}'
+    AND classes.subject = '${filters.subject}'
   `
 
   try {
@@ -44,6 +42,17 @@ async function pageStudy(req, res) {
 }
 
 function pageGiveClasses(req, res) {
+
+  const data = req.query
+  const isNoEmpty = Object.keys(data).length > 0
+  
+  if(isNoEmpty) {
+    data.subject = getSubject(data.subject)
+
+    proffys.push(data)
+
+    return res.redirect('/study')
+  }
   return res.render("give-classes.html", {subjects, weekdays})
 }
 
