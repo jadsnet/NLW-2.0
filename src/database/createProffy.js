@@ -21,7 +21,6 @@ module.exports = async function(db, { proffyValue, classValue, classScheduleValu
             subject,
             cost,
             proffy_id
-
         ) VALUES (
             "${classValue.subject}",
             "${classValue.cost}",

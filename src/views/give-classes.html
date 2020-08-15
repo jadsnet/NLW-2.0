@@ -45,15 +45,15 @@
             <input name="name" id="name" required>
           </div>
           <div class="input-block">
-            <label for="name">Link da sua foto <small>(comece com https://)</small></label>
+            <label for="avatar">Link da sua foto <small>(comece com https://)</small></label>
             <input name="avatar" id="avatar" type="url" required>
           </div>
           <div class="input-block">
-            <label for="name">Whatsapp <small>(somente números)</small></label>
+            <label for="whatsapp">Whatsapp <small>(somente números)</small></label>
             <input name="whastapp" id="whatsapp" type="number" required>
           </div>
           <div class="textarea-block">
-            <label for="name">Biografia</label>
+            <label for="bio">Biografia</label>
             <textarea name="bio" id="bio" required></textarea>
           </div>
         </fieldset>
@@ -67,7 +67,7 @@
               <option value="">Selecione uma Opção</option>
               {% for  subject in subjects %}
                 <option 
-                  value="{{loop.index0}}">{{subject}}
+                  value="{{loop.index}}">{{subject}}
                 </option>            
               {% endfor %}
             </select>

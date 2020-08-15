@@ -34,6 +34,10 @@ async function pageStudy(req, res) {
     const db = await Database
     const proffys = await db.all(query)
 
+    proffys.map((proffy) =>{
+      proffys.subject = getSubject(proffy.subject)
+    })
+
     return res.render('study.html', { proffys, subjects, filters, weekdays })
 
   } catch (error) {
@@ -43,16 +47,16 @@ async function pageStudy(req, res) {
 
 function pageGiveClasses(req, res) {
 
-  const data = req.query
-  const isNoEmpty = Object.keys(data).length > 0
+  // const data = req.query
+  // const isNoEmpty = Object.keys(data).length > 0
   
-  if(isNoEmpty) {
-    data.subject = getSubject(data.subject)
+  // if(isNoEmpty) {
+  //   data.subject = getSubject(data.subject)
 
-    proffys.push(data)
+  //   proffys.push(data)
 
-    return res.redirect('/study')
-  }
+  //   return res.redirect('/study')
+  // }
   return res.render("give-classes.html", {subjects, weekdays})
 }
 
